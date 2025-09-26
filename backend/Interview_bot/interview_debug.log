@@ -1,0 +1,121 @@
+2025-09-25 03:21:47,553 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 03:21:47,554 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 03:21:47,555 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 03:21:47,556 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 03:21:50,494 - interview-bot - INFO - Agent session created successfully
+2025-09-25 03:21:50,495 - interview-bot - INFO - Loading system prompt...
+2025-09-25 03:21:50,500 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 03:21:50,515 - interview-bot - INFO - Starting agent session...
+2025-09-25 03:21:51,410 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 03:21:51,411 - interview-bot - INFO - Initiating greeting: Good morning Prajwal Bangera, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 03:21:59,765 - interview-bot - INFO - Greeting completed
+2025-09-25 03:22:44,776 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 03:22:44,779 - interview-bot - INFO - No response to greeting (attempt 1), trying again
+2025-09-25 03:22:44,780 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I can't hear you clearly. Can you please respond - how are you today?</speak>
+2025-09-25 03:22:50,541 - interview-bot - INFO - TTS stream closed successfully for: I can't hear you clearly. Can you please respond - how are you today?
+2025-09-25 03:23:37,554 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 03:23:37,556 - interview-bot - INFO - No response to greeting (attempt 2), trying again
+2025-09-25 03:23:37,557 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I can't hear you clearly. Can you please respond - how are you today?</speak>
+2025-09-25 03:23:43,309 - interview-bot - INFO - TTS stream closed successfully for: I can't hear you clearly. Can you please respond - how are you today?
+2025-09-25 03:24:30,312 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 03:24:30,314 - interview-bot - INFO - No response to greeting after multiple attempts, proceeding
+2025-09-25 03:24:30,315 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I'll assume you're doing well. Let's proceed with the interview.</speak>
+2025-09-25 03:24:35,651 - interview-bot - INFO - TTS stream closed successfully for: I'll assume you're doing well. Let's proceed with the interview.
+2025-09-25 03:24:35,652 - interview-bot - INFO - TTS stream pushed SSML text: <speak>Tell me about yourself.</speak>
+2025-09-25 03:24:38,653 - interview-bot - INFO - TTS stream closed successfully for: Tell me about yourself.
+2025-09-25 03:28:15,503 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 03:28:15,504 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 03:28:15,504 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 03:28:15,505 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 03:28:17,548 - interview-bot - INFO - Agent session created successfully
+2025-09-25 03:28:17,549 - interview-bot - INFO - Loading system prompt...
+2025-09-25 03:28:17,550 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 03:28:17,551 - interview-bot - INFO - Starting agent session...
+2025-09-25 03:28:18,163 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 03:28:18,165 - interview-bot - INFO - Initiating greeting: Good morning Prajwal Bangera, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 03:28:27,594 - interview-bot - INFO - Greeting completed
+2025-09-25 10:47:54,910 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 10:47:54,919 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 10:47:54,919 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 10:47:54,920 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 10:47:56,755 - interview-bot - INFO - Agent session created successfully
+2025-09-25 10:47:56,755 - interview-bot - INFO - Loading system prompt...
+2025-09-25 10:47:56,756 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 10:47:56,757 - interview-bot - INFO - Starting agent session...
+2025-09-25 10:47:58,151 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 10:47:58,152 - interview-bot - INFO - Initiating greeting: Good morning Pooja shree, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 10:48:06,045 - interview-bot - INFO - Greeting completed
+2025-09-25 10:48:51,055 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 10:48:51,061 - interview-bot - INFO - No response to greeting (attempt 1), trying again
+2025-09-25 10:48:51,062 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I can't hear you clearly. Can you please respond - how are you today?</speak>
+2025-09-25 10:48:56,828 - interview-bot - INFO - TTS stream closed successfully for: I can't hear you clearly. Can you please respond - how are you today?
+2025-09-25 10:49:56,841 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 10:49:56,841 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 10:49:56,842 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 10:49:56,842 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 10:49:58,487 - interview-bot - INFO - Agent session created successfully
+2025-09-25 10:49:58,532 - interview-bot - INFO - Loading system prompt...
+2025-09-25 10:49:58,558 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 10:49:58,572 - interview-bot - INFO - Starting agent session...
+2025-09-25 10:49:59,169 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 10:49:59,170 - interview-bot - INFO - Initiating greeting: Good morning Pooja shree, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 10:50:06,904 - interview-bot - INFO - Greeting completed
+2025-09-25 10:51:04,907 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 10:51:04,908 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 10:51:04,909 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 10:51:04,910 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 10:51:06,354 - interview-bot - INFO - Agent session created successfully
+2025-09-25 10:51:06,354 - interview-bot - INFO - Loading system prompt...
+2025-09-25 10:51:06,355 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 10:51:06,355 - interview-bot - INFO - Starting agent session...
+2025-09-25 10:51:06,879 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 10:51:06,880 - interview-bot - INFO - Initiating greeting: Good morning Pooja shree, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 10:51:13,982 - interview-bot - INFO - Greeting completed
+2025-09-25 10:51:43,941 - interview-bot - INFO - Resuming from false interruption
+2025-09-25 10:51:43,945 - interview-bot - INFO - TTS stream pushed SSML text: <speak>Please continue.</speak>
+2025-09-25 10:51:46,949 - interview-bot - INFO - TTS stream closed successfully for: Please continue.
+2025-09-25 10:51:58,984 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 10:51:58,986 - interview-bot - INFO - No response to greeting (attempt 1), trying again
+2025-09-25 10:51:58,987 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I can't hear you clearly. Can you please respond - how are you today?</speak>
+2025-09-25 10:52:04,739 - interview-bot - INFO - TTS stream closed successfully for: I can't hear you clearly. Can you please respond - how are you today?
+2025-09-25 10:52:51,747 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 10:52:51,750 - interview-bot - INFO - No response to greeting (attempt 2), trying again
+2025-09-25 10:52:51,751 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I can't hear you clearly. Can you please respond - how are you today?</speak>
+2025-09-25 10:52:57,518 - interview-bot - INFO - TTS stream closed successfully for: I can't hear you clearly. Can you please respond - how are you today?
+2025-09-25 11:10:45,002 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 11:10:45,007 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 11:10:45,011 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 11:10:45,014 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 11:10:49,020 - interview-bot - INFO - Agent session created successfully
+2025-09-25 11:10:49,021 - interview-bot - INFO - Loading system prompt...
+2025-09-25 11:10:49,023 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 11:10:49,024 - interview-bot - INFO - Starting agent session...
+2025-09-25 11:10:49,616 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 11:10:49,619 - interview-bot - INFO - Initiating greeting: Good morning Pooja shree, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 11:10:56,846 - interview-bot - INFO - Greeting completed
+2025-09-25 11:11:41,857 - interview-bot - INFO - Timeout reached after 45s, no transcription received
+2025-09-25 11:11:41,862 - interview-bot - INFO - No response to greeting (attempt 1), trying again
+2025-09-25 11:11:41,865 - interview-bot - INFO - TTS stream pushed SSML text: <speak>I can't hear you clearly. Can you please respond - how are you today?</speak>
+2025-09-25 11:11:47,631 - interview-bot - INFO - TTS stream closed successfully for: I can't hear you clearly. Can you please respond - how are you today?
+2025-09-25 12:08:45,368 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 12:08:45,374 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 12:08:45,376 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 12:08:45,378 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 12:08:50,143 - interview-bot - INFO - Agent session created successfully
+2025-09-25 12:08:50,144 - interview-bot - INFO - Loading system prompt...
+2025-09-25 12:08:50,149 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 12:08:50,151 - interview-bot - INFO - Starting agent session...
+2025-09-25 12:08:50,798 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 12:08:50,801 - interview-bot - INFO - Initiating greeting: Good morning Pooja shree, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 12:08:58,870 - interview-bot - INFO - Greeting completed
+2025-09-25 13:13:40,459 - interview-bot - INFO - === INTERVIEW BOT STARTING ===
+2025-09-25 13:13:40,461 - interview-bot - INFO - Interview duration calculated: 75 minutes
+2025-09-25 13:13:40,461 - interview-bot - INFO - Duration calculation details: {'base_duration': 30, 'role_multiplier': 1.0, 'after_role_adjustment': 30.0, 'skills_count': 19, 'skill_time_added': 47.5, 'after_skill_adjustment': 77.5, 'complexity_bonus': 12.0, 'projects_count': 4, 'experience_count': 3, 'final_duration': 75, 'max_allowed_with_extension': 86}
+2025-09-25 13:13:40,462 - interview-bot - INFO - Creating agent session with components...
+2025-09-25 13:13:42,495 - interview-bot - INFO - Agent session created successfully
+2025-09-25 13:13:42,496 - interview-bot - INFO - Loading system prompt...
+2025-09-25 13:13:42,498 - interview-bot - INFO - Loaded system prompt: You are an AI-powered voice interview bot conducting structured, adaptive interviews for job candida...
+2025-09-25 13:13:42,499 - interview-bot - INFO - Starting agent session...
+2025-09-25 13:13:43,032 - interview-bot - INFO - Session started successfully, initiating interview flow
+2025-09-25 13:13:43,033 - interview-bot - INFO - Initiating greeting: Good morning Pooja shree, thank you for joining this interview for the Senior Software Engineer - AI/ML position. How are you today?
+2025-09-25 13:13:50,830 - interview-bot - INFO - Greeting completed

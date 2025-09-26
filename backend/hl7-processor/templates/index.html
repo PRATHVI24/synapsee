@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HL7 Document Processor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .tab-container {
+            padding: 20px;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: flex-start;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #666;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tab-btn:hover {
+            background: #f8f9fa;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .tab-btn.active {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            transition: all 0.3s;
+            background: #fafafa;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 40px;
+            background: #f8f9fa;
+            border: 3px dashed #ddd;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .file-upload-label:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .file-upload-label.has-file {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn, .btn-reset {
+            flex: 1;
+            max-width: 200px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-reset {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+        }
+        
+        .btn-reset:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+        }
+        
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .result-box h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .ocr-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .ocr-engine {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .ocr-engine h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .confidence-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #667eea);
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 HL7 Document Processor</h1>
+            <p>Convert HL7 messages, PDF lab orders, and scan documents with OCR</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('hl7', this)">HL7 to Text</button>
+                    <button class="tab-btn" onclick="switchTab('pdf', this)">PDF to HL7</button>
+                    <button class="tab-btn" onclick="switchTab('ocr', this)">OCR Processing</button>
+                </div>
+                
+                <!-- HL7 to Natural Language Tab -->
+                <div id="hl7-tab" class="tab-content active">
+                    <div class="form-group">
+                        <label for="hl7-input">Paste HL7 Message:</label>
+                        <textarea id="hl7-input" rows="10" placeholder="MSH|^~\&|SENDING APP|SENDING FAC|REC APP|REC FAC|20130101101500||ADT^A01^ADT_A01|..."></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" onclick="convertHL7ToText()">
+                            Convert to Natural Language
+                        </button>
+                        <button class="btn-reset" onclick="resetHL7Form()">
+                            Reset
+                        </button>
+                    </div>
+                    <div id="hl7-result"></div>
+                </div>
+                
+                <!-- PDF to HL7 Tab -->
+                <div id="pdf-tab" class="tab-content">
+                    <div class="form-group">
+                        <label>Upload PDF Lab Order:</label>
+                        <div class="file-upload">
+                            <input type="file" id="pdf-file" accept=".pdf" onchange="handlePDFFile(this)">
+                            <label for="pdf-file" class="file-upload-label" id="pdf-label">
+                                📄 Click to upload PDF or drag and drop
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" onclick="convertPDFToHL7()" disabled id="pdf-convert-btn">
+                            Convert PDF to HL7
+                        </button>
+                        <button class="btn-reset" onclick="resetPDFForm()">
+                            Reset
+                        </button>
+                    </div>
+                    <div id="pdf-result"></div>
+                </div>
+                
+                <!-- OCR Processing Tab -->
+                <div id="ocr-tab" class="tab-content">
+                    <div class="form-group">
+                        <label>Upload Document Image:</label>
+                        <div class="file-upload">
+                            <input type="file" id="ocr-file" accept="image/*,.pdf" onchange="handleOCRFile(this)">
+                            <label for="ocr-file" class="file-upload-label" id="ocr-label">
+                                🖼️ Click to upload image (JPG, PNG, TIFF) or drag and drop
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" onclick="processOCR()" disabled id="ocr-process-btn">
+                            Process with Multi Engine OCR
+                        </button>
+                        <button class="btn-reset" onclick="resetOCRForm()">
+                            Reset
+                        </button>
+                    </div>
+                    <div id="ocr-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Sample HL7 message for testing
+        const sampleHL7 = `MSH|^~\\&|SENDING APP|SENDING FAC|REC APP|REC FAC|20130101101500||ADT^A01^ADT_A01|0123456789|P|2.5||||AL
+EVN||20130101101500||AAA|AAA|20130101082500
+PID|1||123-456-789^^^HOSPITAL^MR||SMITH^JOHN^A|||M|||1111 SOMEWHERE STREET^^SOMEWHERE^^^USA||555-555-2004|||M
+PV1|1|I|PATIENT WARD|U||||^JONES^MARY^^MD|^SMITH^JACK|CAR||||2|A0|||||||||||||||||||||||||||||2013
+DG1|1||I25.10^Coronary Artery Disease^^ICD10||20130101
+OBX|1|NM|GLU^Glucose||120|mg/dL|70-110|H|||F|||20130101`;
+
+        // Load sample HL7 on page load
+        window.onload = () => {
+            document.getElementById('hl7-input').value = sampleHL7;
+        };
+        
+        function switchTab(tabName, element) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked tab button
+            element.classList.add('active');
+        }
+        
+        // Reset Functions
+        function resetHL7Form() {
+            document.getElementById('hl7-input').value = sampleHL7;
+            document.getElementById('hl7-result').innerHTML = '';
+        }
+        
+        function resetPDFForm() {
+            const fileInput = document.getElementById('pdf-file');
+            const label = document.getElementById('pdf-label');
+            const convertBtn = document.getElementById('pdf-convert-btn');
+            
+            fileInput.value = '';
+            label.textContent = '📄 Click to upload PDF or drag and drop';
+            label.classList.remove('has-file');
+            convertBtn.disabled = true;
+            document.getElementById('pdf-result').innerHTML = '';
+        }
+        
+        function resetOCRForm() {
+            const fileInput = document.getElementById('ocr-file');
+            const label = document.getElementById('ocr-label');
+            const processBtn = document.getElementById('ocr-process-btn');
+            
+            fileInput.value = '';
+            label.textContent = '🖼️ Click to upload image (JPG, PNG, TIFF) or drag and drop';
+            label.classList.remove('has-file');
+            processBtn.disabled = true;
+            document.getElementById('ocr-result').innerHTML = '';
+        }
+        
+        // HL7 to Natural Language Conversion
+        async function convertHL7ToText() {
+            console.log('Converting HL7 to text...');
+            const hl7Message = document.getElementById('hl7-input').value;
+            const resultDiv = document.getElementById('hl7-result');
+            
+            if (!hl7Message.trim()) {
+                resultDiv.innerHTML = '<div class="error">Please enter an HL7 message</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="loading"><div class="spinner"></div> Processing...</div>';
+            
+            try {
+                const formData = new FormData();
+                formData.append('message', hl7Message);
+                
+                const response = await fetch('/api/hl7-to-text', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const responseText = await response.text();
+                console.log('Response:', responseText);
+                
+                if (!response.ok) {
+                    throw new Error(`Server error: ${responseText}`);
+                }
+                
+                const result = JSON.parse(responseText);
+                
+                resultDiv.innerHTML = `
+                    <div class="result-box">
+                        <h3>📝 Natural Language Summary</h3>
+                        <div class="result-content">${result.summary || 'No summary available'}</div>
+                    </div>
+                    <div class="success">✅ Successfully converted HL7 message to natural language!</div>
+                `;
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        // PDF File Handling
+        function handlePDFFile(input) {
+            const file = input.files[0];
+            const label = document.getElementById('pdf-label');
+            const convertBtn = document.getElementById('pdf-convert-btn');
+            
+            if (file && file.type === 'application/pdf') {
+                label.textContent = `📄 Selected: ${file.name}`;
+                label.classList.add('has-file');
+                convertBtn.disabled = false;
+            } else {
+                label.textContent = '📄 Click to upload PDF or drag and drop';
+                label.classList.remove('has-file');
+                convertBtn.disabled = true;
+            }
+        }
+        
+        // PDF to HL7 Conversion
+        async function convertPDFToHL7() {
+            console.log('Converting PDF to HL7...');
+            const fileInput = document.getElementById('pdf-file');
+            const file = fileInput.files[0];
+            const resultDiv = document.getElementById('pdf-result');
+            
+            if (!file) {
+                resultDiv.innerHTML = '<div class="error">Please select a PDF file</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="loading"><div class="spinner"></div> Processing PDF...</div>';
+            
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                const response = await fetch('/api/pdf-to-hl7', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server error: ${errorText}`);
+                }
+                
+                const result = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <div class="result-box">
+                        <h3>📋 Extracted Data</h3>
+                        <div class="result-content">${JSON.stringify(result.extracted_data, null, 2)}</div>
+                    </div>
+                    <div class="result-box">
+                        <h3>🔄 Generated HL7 Message</h3>
+                        <div class="result-content">${result.hl7_message}</div>
+                    </div>
+                    <div class="success">✅ Successfully converted PDF to HL7!</div>
+                `;
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        // OCR File Handling
+        function handleOCRFile(input) {
+            const file = input.files[0];
+            const label = document.getElementById('ocr-label');
+            const processBtn = document.getElementById('ocr-process-btn');
+            
+            if (file) {
+                label.textContent = `🖼️ Selected: ${file.name}`;
+                label.classList.add('has-file');
+                processBtn.disabled = false;
+            } else {
+                label.textContent = '🖼️ Click to upload image (JPG, PNG, TIFF) or drag and drop';
+                label.classList.remove('has-file');
+                processBtn.disabled = true;
+            }
+        }
+        
+        // OCR Processing
+        async function processOCR() {
+            console.log('Processing OCR...');
+            const fileInput = document.getElementById('ocr-file');
+            const file = fileInput.files[0];
+            const resultDiv = document.getElementById('ocr-result');
+            
+            if (!file) {
+                resultDiv.innerHTML = '<div class="error">Please select an image file</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="loading"><div class="spinner"></div> Processing with multiple OCR engines... This may take a moment.</div>';
+            
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                const response = await fetch('/api/ocr-process', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server error: ${errorText}`);
+                }
+                
+                const result = await response.json();
+                
+                let ocrResultsHTML = '<div class="ocr-results">';
+                
+                // Display results from each OCR engine
+                if (result.ocr_results.tesseract) {
+                    ocrResultsHTML += `
+                        <div class="ocr-engine">
+                            <h4>Tesseract OCR</h4>
+                            <div style="max-height: 150px; overflow-y: auto; font-size: 12px;">
+                                ${result.ocr_results.tesseract.substring(0, 200)}...
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                if (result.ocr_results.easyocr) {
+                    ocrResultsHTML += `
+                        <div class="ocr-engine">
+                            <h4>EasyOCR</h4>
+                            <div style="max-height: 150px; overflow-y: auto; font-size: 12px;">
+                                ${result.ocr_results.easyocr.substring(0, 200)}...
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                if (result.ocr_results.paddleocr && !result.ocr_results.paddleocr.startsWith('Error:')) {
+                    ocrResultsHTML += `
+                        <div class="ocr-engine">
+                            <h4>PaddleOCR</h4>
+                            <div style="max-height: 150px; overflow-y: auto; font-size: 12px;">
+                                ${result.ocr_results.paddleocr.substring(0, 200)}...
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                ocrResultsHTML += '</div>';
+                
+                resultDiv.innerHTML = `
+                    ${ocrResultsHTML}
+                    <div class="result-box">
+                        <h3>🔍 Combined OCR Result</h3>
+                        <div class="result-content">${result.ocr_results.combined}</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${result.ocr_results.confidence}%"></div>
+                        </div>
+                        <p style="margin-top: 10px;">Confidence: ${result.ocr_results.confidence}%</p>
+                    </div>
+                    ${result.hl7_message ? `
+                        <div class="result-box">
+                            <h3>🔄 Generated HL7 Message</h3>
+                            <div class="result-content">${result.hl7_message}</div>
+                        </div>
+                    ` : ''}
+                    <div class="success">✅ Successfully processed image with OCR!</div>
+                `;
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

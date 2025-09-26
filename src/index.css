@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Dashboard Design System - AI/ML Unified App */
+
+@layer base {
+  :root {
+    /* Base colors - Light gray background with black text */
+    --background: 0 0% 95%;
+    --foreground: 0 0% 0%;
+    --sidebar-bg: 0 0% 95%;
+    
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --card-border: 0 0% 20%;
+    
+    /* Interactive elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    
+    /* Brand colors - Professional blue primary */
+    --primary: 219 78% 32%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 219 78% 88%;
+    
+    /* Secondary system */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 0 0% 0%;
+    
+    /* Neutral tones */
+    --muted: 220 14% 96%;
+    --muted-foreground: 0 0% 40%;
+    
+    /* Accent system */
+    --accent: 220 14% 96%;
+    --accent-foreground: 0 0% 0%;
+    
+    /* Status colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 100%;
+    
+    /* Form elements */
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 219 78% 32%;
+    
+    /* Project-specific colors */
+    --medical: 210 100% 60%;
+    --medical-light: 210 100% 95%;
+    --finance: 142 76% 36%;
+    --finance-light: 142 76% 95%;
+    --ai: 260 100% 60%;
+    --ai-light: 260 100% 95%;
+    --sales: 25 100% 50%;
+    --sales-light: 25 100% 95%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(219 78% 32%), hsl(219 78% 45%));
+    --gradient-medical: linear-gradient(135deg, hsl(210 100% 60%), hsl(210 100% 75%));
+    --gradient-finance: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 50%));
+    --gradient-ai: linear-gradient(135deg, hsl(260 100% 60%), hsl(260 100% 75%));
+    --gradient-sales: linear-gradient(135deg, hsl(25 100% 50%), hsl(25 100% 65%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 20px hsl(219 78% 32% / 0.15);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 95%;
+
+    --sidebar-foreground: 0 0% 0%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Professional dark theme */
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --sidebar-bg: 15 23 42;
+    
+    /* Card system */
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+    --card-border: 51 65 85;
+    
+    /* Interactive elements */
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    
+    /* Brand colors */
+    --primary: 219 78% 65%;
+    --primary-foreground: 15 23 42;
+    --primary-light: 219 78% 25%;
+    
+    /* Secondary system */
+    --secondary: 51 65 85;
+    --secondary-foreground: 248 250 252;
+    
+    /* Neutral tones */
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    
+    /* Accent system */
+    --accent: 51 65 85;
+    --accent-foreground: 248 250 252;
+    
+    /* Status colors - adjusted for dark mode */
+    --destructive: 0 72% 61%;
+    --destructive-foreground: 248 250 252;
+    --success: 142 76% 46%;
+    --success-foreground: 248 250 252;
+    --warning: 45 93% 57%;
+    --warning-foreground: 15 23 42;
+    
+    /* Form elements */
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 219 78% 65%;
+    
+    /* Project-specific colors - dark mode */
+    --medical: 210 100% 70%;
+    --medical-light: 210 100% 15%;
+    --finance: 142 76% 46%;
+    --finance-light: 142 76% 15%;
+    --ai: 260 100% 70%;
+    --ai-light: 260 100% 15%;
+    --sales: 25 100% 60%;
+    --sales-light: 25 100% 15%;
+    
+    /* Gradients - dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(219 78% 55%), hsl(219 78% 70%));
+    --gradient-medical: linear-gradient(135deg, hsl(210 100% 60%), hsl(210 100% 75%));
+    --gradient-finance: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 50%));
+    --gradient-ai: linear-gradient(135deg, hsl(260 100% 60%), hsl(260 100% 75%));
+    --gradient-sales: linear-gradient(135deg, hsl(25 100% 50%), hsl(25 100% 65%));
+    
+    /* Shadows - enhanced for dark mode */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.35);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.45);
+    --shadow-glow: 0 0 20px hsl(219 78% 65% / 0.25);
+    
+    /* Sidebar dark mode */
+    --sidebar-background: 15 23 42;
+    --sidebar-foreground: 248 250 252;
+    --sidebar-primary: 219 78% 65%;
+    --sidebar-primary-foreground: 15 23 42;
+    --sidebar-accent: 51 65 85;
+    --sidebar-accent-foreground: 248 250 252;
+    --sidebar-border: 51 65 85;
+    --sidebar-ring: 219 78% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Project-specific utility classes */
+  .project-medical {
+    @apply border-l-4 border-l-[hsl(var(--medical))];
+  }
+  
+  .project-finance {
+    @apply border-l-4 border-l-[hsl(var(--finance))];
+  }
+  
+  .project-ai {
+    @apply border-l-4 border-l-[hsl(var(--ai))];
+  }
+  
+  .project-sales {
+    @apply border-l-4 border-l-[hsl(var(--sales))];
+  }
+  
+  /* Dashboard card styles */
+  .dashboard-card {
+    @apply bg-card border border-[hsl(var(--card-border))] rounded-lg p-6 shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-shadow duration-200;
+  }
+  
+  .gradient-medical {
+    background: var(--gradient-medical);
+  }
+  
+  .gradient-finance {
+    background: var(--gradient-finance);
+  }
+  
+  .gradient-ai {
+    background: var(--gradient-ai);
+  }
+  
+  .gradient-sales {
+    background: var(--gradient-sales);
+  }
+}

@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "08d8bb8e-55d5-442e-9e02-6ab838053220",
+    "candidateName": "Sample Candidate",
+    "position": "Senior AI Engineer",
+    "scheduledAt": "2025-09-24T13:12:04.214695Z",
+    "duration": 45,
+    "status": "completed",
+    "jobDescription": "Placeholder JD sourced from ai_2_1.py sample data.",
+    "resume": null,
+    "settings": {
+      "duration": 45,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "Machine Learning",
+        "System Design"
+      ],
+      "difficulty": "senior",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": null,
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T18:15:21.827928Z",
+      "endedAt": "2025-09-24T18:15:37.624896Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T13:12:04.214789Z",
+    "updatedAt": "2025-09-24T18:15:37.624915Z"
+  },
+  {
+    "id": "4e91c687-644e-4941-a48f-af4ce973f2b2",
+    "candidateName": "Projwal ",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T18:13:33.128000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T18:15:39.723065Z",
+      "endedAt": "2025-09-24T18:17:00.737416Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T18:14:26.229182Z",
+    "updatedAt": "2025-09-24T18:17:00.737433Z"
+  },
+  {
+    "id": "2d4099f4-2064-4072-8ed0-1bb6def2e79c",
+    "candidateName": "Priya",
+    "position": "senior ML role ",
+    "scheduledAt": "2025-09-24T18:19:07.312000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T18:20:03.218545Z",
+      "endedAt": "2025-09-24T18:20:06.796316Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T18:19:58.675043Z",
+    "updatedAt": "2025-09-24T18:20:06.796343Z"
+  },
+  {
+    "id": "427cfa87-21b2-44fd-a97a-6676732d4a79",
+    "candidateName": "Prazz",
+    "position": "ML role ",
+    "scheduledAt": "2025-09-24T18:20:37.451000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T18:21:04.042946Z",
+      "endedAt": "2025-09-24T18:21:07.522449Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T18:20:57.960823Z",
+    "updatedAt": "2025-09-24T18:21:07.522472Z"
+  },
+  {
+    "id": "00a4ac81-f60e-4902-8da6-292f01845c45",
+    "candidateName": "hi",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T20:40:26.534000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T20:41:33.468810Z",
+      "endedAt": "2025-09-24T20:42:03.701346Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T20:40:54.965337Z",
+    "updatedAt": "2025-09-24T20:42:03.701364Z"
+  },
+  {
+    "id": "8cb253fd-b162-4da7-821e-4dc893af1971",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T20:41:54.105000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T20:42:30.190163Z",
+      "endedAt": "2025-09-25T04:55:54.212511Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T20:42:23.919979Z",
+    "updatedAt": "2025-09-25T04:55:54.212564Z"
+  },
+  {
+    "id": "1f4c4060-1a91-4fd2-9413-bb635834b83d",
+    "candidateName": "hi",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T20:56:52.817000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T20:57:12.407963Z",
+      "endedAt": "2025-09-25T04:55:57.321686Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T20:57:06.733871Z",
+    "updatedAt": "2025-09-25T04:55:57.321719Z"
+  },
+  {
+    "id": "558caf6a-fe84-493a-9f47-70db60d05c1a",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:03:25.041000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:03:40.493819Z",
+      "endedAt": "2025-09-25T04:55:59.224514Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:03:34.056819Z",
+    "updatedAt": "2025-09-25T04:55:59.224541Z"
+  },
+  {
+    "id": "a8b36e40-17e3-42d3-9ef7-4bfcccab1518",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:06:32.636000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:06:45.849642Z",
+      "endedAt": "2025-09-24T21:07:13.721337Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:06:40.944568Z",
+    "updatedAt": "2025-09-24T21:07:13.721364Z"
+  },
+  {
+    "id": "f62d2e9d-bddf-47f5-97bc-b00613172a2e",
+    "candidateName": "hi",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:07:49.892000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:08:03.002682Z",
+      "endedAt": "2025-09-25T04:56:03.064317Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:07:58.180127Z",
+    "updatedAt": "2025-09-25T04:56:03.064331Z"
+  },
+  {
+    "id": "10381b26-51ec-4e6a-8cb9-71b6b1306a87",
+    "candidateName": "Projwal ",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:14:26.234000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:14:43.810478Z",
+      "endedAt": "2025-09-25T04:56:04.835603Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:14:34.658021Z",
+    "updatedAt": "2025-09-25T04:56:04.835633Z"
+  },
+  {
+    "id": "6bf9c2cb-b68a-41ed-85eb-d9249679b554",
+    "candidateName": "Prazz",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:18:15.808000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:18:31.374657Z",
+      "endedAt": "2025-09-25T04:56:05.953960Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:18:25.547886Z",
+    "updatedAt": "2025-09-25T04:56:05.954005Z"
+  },
+  {
+    "id": "032fdffd-8c2d-4b55-8eb6-b4e7c62be9e4",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:21:03.731000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:21:24.101994Z",
+      "endedAt": "2025-09-25T04:56:07.400432Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:21:17.796040Z",
+    "updatedAt": "2025-09-25T04:56:07.400479Z"
+  },
+  {
+    "id": "e40f7204-f009-40d1-904c-c6864451b190",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:22:02.960000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:22:15.017730Z",
+      "endedAt": "2025-09-25T04:56:09.131308Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:22:11.133821Z",
+    "updatedAt": "2025-09-25T04:56:09.131338Z"
+  },
+  {
+    "id": "aba3e363-4e9d-4d5d-94dc-332c93cf7151",
+    "candidateName": "Prazz",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:27:26.539000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:27:37.963622Z",
+      "endedAt": "2025-09-25T04:56:10.328570Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:27:34.281195Z",
+    "updatedAt": "2025-09-25T04:56:10.328596Z"
+  },
+  {
+    "id": "1798762e-b8fd-4d0b-ad1e-72aadc4a4bd6",
+    "candidateName": "Priya",
+    "position": "senior ML role ",
+    "scheduledAt": "2025-09-24T21:30:42.014000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:30:55.501073Z",
+      "endedAt": "2025-09-25T04:56:11.991598Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:30:50.151155Z",
+    "updatedAt": "2025-09-25T04:56:11.991697Z"
+  },
+  {
+    "id": "7bb5882c-75db-47f8-97f9-84808dcd1535",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:32:52.491000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:33:50.803082Z",
+      "endedAt": "2025-09-25T04:56:13.032764Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:32:59.689769Z",
+    "updatedAt": "2025-09-25T04:56:13.032844Z"
+  },
+  {
+    "id": "c641c614-6c64-47ae-a6ac-14a28591653e",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:33:58.738000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:34:11.388118Z",
+      "endedAt": "2025-09-25T04:56:14.081484Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:34:07.389907Z",
+    "updatedAt": "2025-09-25T04:56:14.081561Z"
+  },
+  {
+    "id": "221f89aa-dfe1-4d1d-a9fe-0214dcac5a87",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:51:29.904000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:51:46.384750Z",
+      "endedAt": "2025-09-25T04:56:15.782167Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:51:38.869404Z",
+    "updatedAt": "2025-09-25T04:56:15.782191Z"
+  },
+  {
+    "id": "75e70cb4-16af-48e2-95f4-dbdcedc17025",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-24T21:57:57.584000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-24T21:58:14.263799Z",
+      "endedAt": "2025-09-24T21:58:38.581076Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-24T21:58:07.258267Z",
+    "updatedAt": "2025-09-24T21:58:38.581101Z"
+  },
+  {
+    "id": "191d0449-03d7-4856-9956-0eefef9d6a73",
+    "candidateName": "Pooja",
+    "position": "Full stack + AI ",
+    "scheduledAt": "2025-09-25T04:53:32.778000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T04:56:20.423519Z",
+      "endedAt": "2025-09-25T04:56:23.998919Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T04:55:27.870085Z",
+    "updatedAt": "2025-09-25T04:56:23.998978Z"
+  },
+  {
+    "id": "5c11f7fe-0566-4fd9-af26-17784282b78e",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T04:55:27.889000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T04:58:34.434804Z",
+      "endedAt": "2025-09-25T05:00:10.066128Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T04:56:47.046063Z",
+    "updatedAt": "2025-09-25T05:00:10.066176Z"
+  },
+  {
+    "id": "19b3581d-387d-4458-95d3-7fa387d408e2",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T05:00:11.885000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T05:00:28.964048Z",
+      "endedAt": "2025-09-25T05:05:50.465866Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T05:00:22.689427Z",
+    "updatedAt": "2025-09-25T05:05:50.465879Z"
+  },
+  {
+    "id": "ebd9d220-cebc-431d-9d34-a3c4cdfa7e38",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T05:17:35.170000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T05:17:52.777794Z",
+      "endedAt": "2025-09-25T05:22:54.881387Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T05:17:46.846913Z",
+    "updatedAt": "2025-09-25T05:22:54.881398Z"
+  },
+  {
+    "id": "04b643b7-3236-488f-a2ec-acc3c0aab972",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T05:19:16.079000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T05:19:55.519209Z",
+      "endedAt": "2025-09-25T05:20:12.112738Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T05:19:46.224483Z",
+    "updatedAt": "2025-09-25T05:20:12.112756Z"
+  },
+  {
+    "id": "10631622-075e-4760-8e0a-a28c5459c425",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T05:19:46.260000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T05:21:04.242008Z",
+      "endedAt": "2025-09-25T05:22:56.620337Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T05:20:36.677471Z",
+    "updatedAt": "2025-09-25T05:22:56.620361Z"
+  },
+  {
+    "id": "dc6a5526-da0a-4d7a-b4a0-f49978859119",
+    "candidateName": "Priya",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T05:20:36.721000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T05:40:43.242899Z",
+      "endedAt": "2025-09-25T05:41:53.926256Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T05:40:32.030718Z",
+    "updatedAt": "2025-09-25T05:41:53.926278Z"
+  },
+  {
+    "id": "bf20ddb9-c248-4527-957f-78f89d78d585",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T06:38:27.924000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T06:38:43.856700Z",
+      "endedAt": "2025-09-25T06:39:00.577515Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T06:38:37.831023Z",
+    "updatedAt": "2025-09-25T06:39:00.577582Z"
+  },
+  {
+    "id": "229685bc-870d-460c-a676-f2fa9056c337",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T07:43:23.412000Z",
+    "duration": 60,
+    "status": "completed",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": {
+      "status": "completed",
+      "startedAt": "2025-09-25T07:43:39.279959Z",
+      "endedAt": "2025-09-25T07:43:44.809743Z",
+      "progressPercent": 100.0,
+      "remainingSeconds": 0,
+      "currentTopic": null
+    },
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T07:43:33.412076Z",
+    "updatedAt": "2025-09-25T07:43:44.809758Z"
+  },
+  {
+    "id": "34326d3f-e06c-462d-9c30-a1150d565fbb",
+    "candidateName": "Pooja",
+    "position": "Senior ML role ",
+    "scheduledAt": "2025-09-25T07:51:04.456000Z",
+    "duration": 60,
+    "status": "scheduled",
+    "jobDescription": "",
+    "resume": "",
+    "settings": {
+      "duration": 60,
+      "durationUnit": "minutes",
+      "topics": [
+        "Python",
+        "System Design"
+      ],
+      "difficulty": "mid",
+      "includeVideo": true,
+      "includeAudio": true,
+      "autoEvaluation": true,
+      "language": "en",
+      "timezone": null,
+      "remindersEnabled": false
+    },
+    "liveStatus": null,
+    "transcriptEntries": [],
+    "evaluation": null,
+    "createdAt": "2025-09-25T07:51:15.336824Z",
+    "updatedAt": "2025-09-25T07:51:15.336829Z"
+  }
+]

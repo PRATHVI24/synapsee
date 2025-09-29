@@ -1,0 +1,446 @@
+{
+  "name": "transcript",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "transcript",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "971968db-9202-4604-9377-7b7dbb6c4c86",
+      "name": "Webhook",
+      "webhookId": "2185726f-953d-47e7-9fac-10a02d4c26d3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst body = items[0].json.body || {};\n\nlet doctorName = \"\";\nlet attendeeEmail = \"\";\nlet prospectTimezone = \"\";\n\n// Extract basic call data - prefer function_calls data over metadata\nif (body.function_calls && Array.isArray(body.function_calls)) {\n  const bookingCall = body.function_calls.find(fc => fc.name === \"book_meeting_slot\");\n  if (bookingCall) {\n    doctorName = bookingCall.params?.name || \"\";\n    attendeeEmail = bookingCall.params?.email || \"\";\n  }\n}\n\n// Fallback: use metadata for missing data\nif (!doctorName && body.metadata?.doctor_name) {\n  doctorName = body.metadata.doctor_name;\n}\n\n// Extract timezone from metadata (sent from n8n workflow)\nif (body.metadata?.prospect_timezone) {\n  prospectTimezone = body.metadata.prospect_timezone;\n}\n\n// Enhanced transcript formatting for better readability and AI analysis\nconst formattedTranscript = (body.chat || [])\n  .filter(m => m.content && m.content.trim()) // Remove empty messages\n  .map(m => `${m.role === \"assistant\" ? \"Agent\" : \"Customer\"}: ${m.content.trim()}`)\n  .join(\"\\n\");\n\n// Meeting detection from function calls\nconst meetingBooked = body.function_calls && \n  body.function_calls.some(fc => fc.name === \"book_meeting_slot\");\n\n// Extract meeting details if booked\nlet meetingDetails = {};\nif (meetingBooked) {\n  const bookingCall = body.function_calls.find(fc => fc.name === \"book_meeting_slot\");\n  if (bookingCall && bookingCall.params) {\n    meetingDetails = {\n      meeting_date_time: bookingCall.params.start_time || \"\",\n      meeting_timezone: prospectTimezone,\n      attendee_name: bookingCall.params.name || doctorName,\n      attendee_email: bookingCall.params.email || attendeeEmail,\n      attendee_phone: bookingCall.params.phone || \"\"\n    };\n  }\n}\n\nreturn [{\n  json: {\n    call_id: body.call_id,\n    doctor_name: doctorName,\n    prospect_timezone: prospectTimezone, // NEW: Timezone field\n    from_phone: body.voip?.from || \"\",\n    to_phone: (body.voip?.to || \"\").replace(/\"/g, \"\"), // cleanup quotes\n    attendee_email: attendeeEmail,\n    call_start_time: new Date(body.ts * 1000).toISOString(),\n    call_end_time: new Date((body.ts + body.duration) * 1000).toISOString(),\n    transcript: formattedTranscript,\n    call_duration_seconds: body.duration || 0,\n    meeting_booked: meetingBooked, // Boolean flag\n    meeting_details: meetingDetails, // NEW: Structured meeting data\n    raw_function_calls: body.function_calls || [],\n    \n    // Additional call metadata for analysis\n    call_outcome: meetingBooked ? \"Meeting Scheduled\" : \"No Meeting\",\n    call_quality_score: body.chat ? body.chat.length : 0, // Simple engagement metric\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "2e18ac1d-e57b-409f-bf27-cfcf2921d2dc",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appeeCIow2wLzOUNT",
+          "mode": "list",
+          "cachedResultName": "call_transcripts",
+          "cachedResultUrl": "https://airtable.com/appeeCIow2wLzOUNT"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblnPKEDDif2ZGgLA",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appeeCIow2wLzOUNT/tblnPKEDDif2ZGgLA"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.doctor_name }}",
+            "call_id": "={{ $json.call_id }}",
+            "doctor_name": "={{ $json.doctor_name }}",
+            "from_phone": "={{ $json.from_phone }}",
+            "to_phone": "={{ $json.to_phone }}",
+            "call_start_time": "={{ $json.call_start_time }}",
+            "call_end_time": "={{ $json.call_end_time }}",
+            "transcript": "={{ $json.transcript }}",
+            "call_sentiment": "={{ $json.call_sentiment }}",
+            "objection_type": "={{ $json.objection_type }}",
+            "conversion_stage": "={{ $json.conversion_stage }}",
+            "key_pain_points": "={{ $json.key_pain_points }}",
+            "interest_level": "={{ $json.interest_level }}",
+            "objection_raised": "={{ $json.objection_raised }}",
+            "meeting_booked": "={{ $json.meeting_booked }}",
+            "follow_up_needed": "={{ true }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "call_id",
+              "displayName": "call_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "doctor_name",
+              "displayName": "doctor_name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "from_phone",
+              "displayName": "from_phone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "to_phone",
+              "displayName": "to_phone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "call_start_time",
+              "displayName": "call_start_time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "call_end_time",
+              "displayName": "call_end_time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "transcript",
+              "displayName": "transcript",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "call_sentiment",
+              "displayName": "call_sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Positive",
+                  "value": "Positive"
+                },
+                {
+                  "name": "Neutral",
+                  "value": "Neutral"
+                },
+                {
+                  "name": "Negative",
+                  "value": "Negative"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "meeting_booked",
+              "displayName": "meeting_booked",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "objection_raised",
+              "displayName": "objection_raised",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "objection_type",
+              "displayName": "objection_type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Cost",
+                  "value": "Cost"
+                },
+                {
+                  "name": "Timing",
+                  "value": "Timing"
+                },
+                {
+                  "name": "Competitor",
+                  "value": "Competitor"
+                },
+                {
+                  "name": "Not Interested",
+                  "value": "Not Interested"
+                },
+                {
+                  "name": "Other",
+                  "value": "Other"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "conversion_stage",
+              "displayName": "conversion_stage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Interested",
+                  "value": "Interested"
+                },
+                {
+                  "name": "Considering",
+                  "value": "Considering"
+                },
+                {
+                  "name": "Rejected",
+                  "value": "Rejected"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "follow_up_needed",
+              "displayName": "follow_up_needed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "key_pain_points",
+              "displayName": "key_pain_points",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "interest_level",
+              "displayName": "interest_level",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "High",
+                  "value": "High"
+                },
+                {
+                  "name": "Medium",
+                  "value": "Medium"
+                },
+                {
+                  "name": "Low",
+                  "value": "Low"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        944,
+        0
+      ],
+      "id": "435f6339-f505-4625-a146-522f558e7622",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "CTFFy8r2scX4Coah",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert call analyst specializing in B2B sales calls for dental practice management software. Analyze the provided call transcript and extract specific insights in JSON format.\n\nCONTEXT:\n- Agent: Sarah from iosys\n- Target: Dental practice for management software\n- Goal: Qualify needs and book meetings\n\nTRANSCRIPT:\n{{ $json.transcript }}\n\nReturn your analysis as a valid JSON object with these exact fields:\n- call_sentiment: \"Positive\" | \"Neutral\" | \"Negative\"\n- meeting_booked: true | false\n- objection_raised: true | false\n- objection_type: \"Cost\" | \"Timing\" | \"Competitor\" | \"Not Interested\" | \"Other\" | null\n- conversion_stage: \"Interested\" | \"Considering\" | \"Rejected\" | \"Closed\"\n- follow_up_needed: true | false\n- key_pain_points: \"string describing main challenges mentioned\"\n- interest_level: \"High\" | \"Medium\" | \"Low\"\n- decision_maker: true | false\n\nBe precise and consistent with your classifications. Return only the JSON object, no additional text."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        368,
+        0
+      ],
+      "id": "704059d6-0f14-4b71-b5da-50914ec154fa",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "FugtEOHByAJg9gQ3",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const geminiData = $input.all();\nconst callData = $('Code').all()[0].json;\n\nconsole.log(\"=== GEMINI PROCESSING ===\");\nconsole.log(\"Call Data Keys:\", Object.keys(callData));\nconsole.log(\"Timezone from call:\", callData.prospect_timezone);\n\n// Correct path to Gemini response\nconst geminiResponse = geminiData[0].content?.parts?.[0]?.text || \"\";\nconsole.log(\"Raw Gemini Response:\", geminiResponse);\n\nlet analysisData;\ntry {\n  // Clean the response - remove markdown code blocks and extra whitespace\n  let cleanResponse = geminiResponse.replace(/```json\\n?|\\n?```/g, '').trim();\n  console.log(\"Cleaned Response:\", cleanResponse);\n  \n  // Parse the JSON\n  analysisData = JSON.parse(cleanResponse);\n  console.log(\"Successfully parsed Gemini analysis:\", analysisData);\n  \n  // Validate required fields\n  const requiredFields = ['call_sentiment', 'meeting_booked', 'objection_raised', 'conversion_stage', 'follow_up_needed'];\n  const missingFields = requiredFields.filter(field => !(field in analysisData));\n  \n  if (missingFields.length > 0) {\n    console.log(`Warning: Missing fields: ${missingFields.join(', ')}`);\n  }\n  \n} catch (error) {\n  console.log('Gemini response parsing failed:', error.message);\n  console.log('Using enhanced fallback analysis...');\n  \n  // Enhanced fallback analysis with timezone awareness\n  const transcript = (callData.transcript || '').toLowerCase();\n  const meetingBookedInCall = callData.meeting_booked || false;\n  const hasTimezoneData = Boolean(callData.prospect_timezone);\n  \n  // Analyze transcript for key indicators\n  const positiveIndicators = ['yes', 'sounds good', 'let\\'s do it', 'perfect', 'great', 'book it', 'schedule'];\n  const objectionIndicators = ['busy', 'not interested', 'call back later', 'not now', 'no thanks'];\n  const painPointIndicators = ['scheduling', 'billing', 'patients', 'busy', 'time', 'staff', 'insurance'];\n  \n  const hasPositiveSignals = positiveIndicators.some(indicator => transcript.includes(indicator));\n  const hasObjections = objectionIndicators.some(indicator => transcript.includes(indicator));\n  const hasPainPoints = painPointIndicators.some(indicator => transcript.includes(indicator));\n  \n  // FIXED: Determine valid objection type for Airtable\n  let objectionType = null;\n  if (hasObjections) {\n    if (transcript.includes('expensive') || transcript.includes('cost') || transcript.includes('price')) {\n      objectionType = \"Cost\";\n    } else if (transcript.includes('busy') || transcript.includes('later') || transcript.includes('call me later') || transcript.includes('time')) {\n      objectionType = \"Timing\"; // FIXED: Changed from \"Time/Availability\" to \"Timing\"\n    } else if (transcript.includes('competitor') || transcript.includes('already using') || transcript.includes('another provider')) {\n      objectionType = \"Competitor\";\n    } else if (transcript.includes('not interested')) {\n      objectionType = \"Not Interested\";\n    } else {\n      objectionType = \"Other\";\n    }\n  }\n  \n  analysisData = {\n    call_sentiment: hasPositiveSignals ? \"Positive\" : hasObjections ? \"Negative\" : \"Neutral\",\n    meeting_booked: meetingBookedInCall,\n    objection_raised: hasObjections,\n    objection_type: objectionType, // Now uses valid Airtable values\n    conversion_stage: meetingBookedInCall ? \"Closed\" : hasPositiveSignals ? \"Interested\" : \"Considering\", // FIXED: Changed from \"Contacted\" to \"Considering\"\n    follow_up_needed: !meetingBookedInCall,\n    key_pain_points: hasPainPoints ? \"Scheduling and administrative challenges\" : \"Unknown\",\n    interest_level: meetingBookedInCall ? \"High\" : hasPositiveSignals ? \"Medium\" : \"Low\",\n    decision_maker: meetingBookedInCall,\n    timezone_captured: hasTimezoneData,\n    analysis_method: \"fallback_enhanced\"\n  };\n}\n\n// Validate and fix conversion_stage - ADDED VALIDATION\nconst validConversionStages = [\"Interested\", \"Considering\", \"Rejected\", \"Closed\"];\nif (!validConversionStages.includes(analysisData.conversion_stage)) {\n  console.log(`Invalid conversion_stage: ${analysisData.conversion_stage}, defaulting to Interested`);\n  analysisData.conversion_stage = \"Interested\";\n}\n\n// Validate and fix objection_type from Gemini response if needed\nif (analysisData.objection_type) {\n  const validObjectionTypes = [\"Cost\", \"Timing\", \"Competitor\", \"Not Interested\", \"Other\"];\n  \n  // If Gemini returns an invalid value, map it to a valid one\n  if (!validObjectionTypes.includes(analysisData.objection_type)) {\n    console.log(`Invalid objection_type from AI: ${analysisData.objection_type}`);\n    \n    // Map common variations to valid values\n    const objectionMapping = {\n      \"time\": \"Timing\",\n      \"time/availability\": \"Timing\",\n      \"availability\": \"Timing\",\n      \"budget\": \"Cost\",\n      \"money\": \"Cost\",\n      \"price\": \"Cost\",\n      \"not interested\": \"Not Interested\",\n      \"uninterested\": \"Not Interested\",\n      \"competition\": \"Competitor\",\n      \"existing solution\": \"Competitor\",\n      \"contacted\": \"Considering\" // ADDED: Map \"contacted\" to valid value\n    };\n    \n    const lowerObjection = analysisData.objection_type.toLowerCase();\n    let mappedValue = \"Other\"; // Default to \"Other\" if no match\n    \n    for (const [key, value] of Object.entries(objectionMapping)) {\n      if (lowerObjection.includes(key)) {\n        mappedValue = value;\n        break;\n      }\n    }\n    \n    analysisData.objection_type = mappedValue;\n    console.log(`Mapped to valid value: ${mappedValue}`);\n  }\n}\n\n// Enhanced logic corrections based on meeting booking status\nif (analysisData.meeting_booked) {\n  // If meeting was actually booked, ensure consistent analysis\n  analysisData.conversion_stage = \"Closed\";\n  analysisData.decision_maker = true;\n  analysisData.follow_up_needed = false;\n  analysisData.interest_level = \"High\";\n  \n  // If we have meeting details from webhook, include timezone info\n  if (callData.meeting_details && callData.prospect_timezone) {\n    analysisData.meeting_timezone = callData.prospect_timezone;\n    analysisData.timezone_scheduling_success = true;\n  }\n}\n\n// Additional timezone-specific analysis\nif (callData.prospect_timezone) {\n  analysisData.prospect_timezone = callData.prospect_timezone;\n  analysisData.optimal_call_time = getOptimalCallTime(callData.prospect_timezone);\n}\n\n// Function to determine optimal call times based on timezone\nfunction getOptimalCallTime(timezone) {\n  const optimalTimes = {\n    \"Eastern\": \"10:00 AM - 4:00 PM ET\",\n    \"Central\": \"10:00 AM - 4:00 PM CT\", \n    \"Mountain\": \"10:00 AM - 4:00 PM MT\",\n    \"Pacific\": \"10:00 AM - 4:00 PM PT\"\n  };\n  return optimalTimes[timezone] || \"10:00 AM - 4:00 PM local time\";\n}\n\n// Calculate call quality metrics\nconst callQuality = {\n  transcript_length: (callData.transcript || '').length,\n  call_duration: callData.call_duration_seconds || 0,\n  engagement_score: calculateEngagementScore(callData.transcript || '', callData.call_duration_seconds || 0)\n};\n\nfunction calculateEngagementScore(transcript, duration) {\n  if (duration < 30) return \"Low\"; // Very short call\n  if (duration > 300 && transcript.length > 500) return \"High\"; // Long call with good conversation\n  if (duration > 120) return \"Medium\"; // Decent length call\n  return \"Low\";\n}\n\n// FINAL VALIDATION - Ensure all Airtable fields are valid before sending\nconst finalData = {\n  ...callData,\n  ...analysisData,\n  ...callQuality,\n  ai_analysis_raw: geminiResponse,\n  processing_timestamp: new Date().toISOString(),\n  analysis_method: analysisData.analysis_method || \"gemini_success\",\n  \n  // Enhanced fields for better tracking\n  call_quality_rating: callQuality.engagement_score,\n  timezone_handled_properly: Boolean(callData.prospect_timezone),\n  meeting_scheduling_context: callData.meeting_details ? \"Complete\" : \"Partial\"\n};\n\n// Final safety check - log what we're sending to Airtable\nconsole.log(\"=== FINAL AIRTABLE DATA ===\");\nconsole.log(\"conversion_stage:\", finalData.conversion_stage);\nconsole.log(\"objection_type:\", finalData.objection_type);\nconsole.log(\"Valid conversion_stage?\", validConversionStages.includes(finalData.conversion_stage));\n\n// Combine original call data with AI analysis and enhancements\nreturn [{\n  json: finalData\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        704,
+        0
+      ],
+      "id": "e46d8c46-b19b-46d6-8c44-a53a10f60099",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        []
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fe6ae94c-bfcb-46e4-9f0f-e460aed90156",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "880c65b2f1e81567bfaf59ceab25cca8da343a7ebadfcda8f513544ac6293d68"
+  },
+  "id": "dQrcdKSVFj1YWNwQ",
+  "tags": []
+}

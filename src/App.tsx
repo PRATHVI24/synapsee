@@ -10,6 +10,7 @@ import HL7Page from "./pages/hl7/HL7Page";
 import FinanceOCR from "./pages/FinanceOCR";
 import AIInterview from "./pages/AIInterview";
 import SalesManager from "./pages/SalesManager";
+import OutboundCalls from "./pages/OutboundCalls";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/finance-ocr" element={<FinanceOCR />} />
             <Route path="/ai-interview" element={<AIInterview />} />
             <Route path="/sales-manager" element={<SalesManager />} />
+            <Route path="/outbound-calls" element={<OutboundCalls />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

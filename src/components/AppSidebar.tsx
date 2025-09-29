@@ -4,6 +4,7 @@ import {
   DollarSign, 
   Bot, 
   Phone,
+  PhoneCall,
   Home
 } from "lucide-react";
 import {
@@ -49,6 +50,12 @@ const navigationItems = [
     url: "/sales-manager", 
     icon: Phone,
     color: "sales"
+  },
+  { 
+    title: "Outbound Calls", 
+    url: "/outbound-calls", 
+    icon: PhoneCall,
+    color: "calls"
   },
 ];
 

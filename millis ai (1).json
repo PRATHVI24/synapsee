@@ -1,0 +1,142 @@
+{
+  "name": "millis ai",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "86ddb116-a73e-4410-8609-4f09cadf3eaa",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-west.millis.ai/start_outbound_call",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "RYVh3Rbu30RBtTodEXF3HyK65kIZ8c3z"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from_phone",
+              "value": "+17744855611"
+            },
+            {
+              "name": "to_phone",
+              "value": "={{ $json[\"contact no\"].toString().match(/\\+?\\d+/)[0] }}"
+            },
+            {
+              "name": "agent_id",
+              "value": "-O_CLSMzKm-njTzW6xtm"
+            },
+            {
+              "name": "include_metadata_in_prompt",
+              "value": "true"
+            },
+            {
+              "name": "metadata[doctor_name]",
+              "value": "={{ $json['\\nName'] || $json['Name'] }}"
+            },
+            {
+              "name": "metadata[timezone]",
+              "value": "={{ $json.timezone }}"
+            },
+            {
+              "name": "webhook_url",
+              "value": "https://prajan17.app.n8n.cloud/webhook/transcript"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "8c82debf-4e41-476c-8100-5e19bd26c7f8",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1RdTAB_-uTzVp1r6V7gcdYKoUsQqVzbMNGsRs30RO_4E",
+          "mode": "list",
+          "cachedResultName": "oubound_test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RdTAB_-uTzVp1r6V7gcdYKoUsQqVzbMNGsRs30RO_4E/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RdTAB_-uTzVp1r6V7gcdYKoUsQqVzbMNGsRs30RO_4E/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "46ace97f-17cc-4405-a4ed-ebb7c4cc47ed",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7Gf8LTjNmnJlmTuB",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cd53b749-aea1-44e0-991b-91ae6de31432",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "880c65b2f1e81567bfaf59ceab25cca8da343a7ebadfcda8f513544ac6293d68"
+  },
+  "id": "zYDNL3Fx8E8KK1Qb",
+  "tags": []
+}

@@ -8,6 +8,7 @@ import asyncio
 import uvicorn
 from contextlib import asynccontextmanager
 import os
+import sys
 
 from app.config.settings import settings
 from app.db.chromadb_client import chroma_client
